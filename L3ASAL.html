@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خلية الأطلس | عسل طبيعي 100%</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+ html{
+    scroll-behavior:smooth;
+}
+#home, #products, #about, #contact{ scroll-margin-top:120px; }
+
+  :root{
+    --cream:#F8F1DE;
+    --cream-dark:#F0E6C8;
+    --ink:#2E2013;
+    --ink-soft: #2E2013;
+    --gold:#C9972E;
+    --gold-dark:#9C731E;
+    --green:#1F5C4E;
+    --green-dark:#123E34;
+    --terracotta:#B5502F;
+    --terracotta-dark:#8A3B21;
+    --white:#FFFDF7;
+    --shadow: 0 10px 30px rgba(46,32,19,0.08);
+    --shadow-hover: 0 15px 35px rgba(46,32,19,0.15);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    font-family:'Tajawal', sans-serif;
+    background:var(--white); /* تحويل الخلفية الأساسية إلى الأبيض */
+    color:var(--ink-soft);
+    line-height:1.8;
+    overflow-x:hidden;
+    font-size:18px; /* تكبير حجم الخط الأساسي */
+  }
+
+  h1,h2,h3,.brand{
+    font-family:'Reem Kufi', sans-serif;
+    color:var(--green-dark); /* توحيد لون العناوين */
+  }
+
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+
+  /* ===== Zellige pattern (signature element) ===== */
+  .zellige-bg{
+    background-color:var(--green-dark);
+    background-image:
+      linear-gradient(30deg, transparent 48%, rgba(201,151,46,0.35) 49%, rgba(201,151,46,0.35) 51%, transparent 52%),
+      linear-gradient(-30deg, transparent 48%, rgba(201,151,46,0.35) 49%, rgba(201,151,46,0.35) 51%, transparent 52%),
+      linear-gradient(90deg, transparent 48%, rgba(181,80,47,0.35) 49%, rgba(181,80,47,0.35) 51%, transparent 52%);
+    background-size:40px 70px, 40px 70px, 40px 70px;
+  }
+
+   .zellige-divider{
+  height: 4px; /* زيادة السماكة ليكون واضحاً */
+  background: linear-gradient(to right, transparent, var(--gold), transparent); 
+  width: 85%; /* تكبير العرض قليلاً ليتناسب مع السماكة */
+  margin: 0 auto; 
+  opacity: 0.9;
+  border-radius: 2px; /* لتنعيم أطراف الخط وجعله يبدو كسبيكة ذهب */
+}
+
+  /* ===== Header ===== */
+  header{
+    position:sticky; top:0; z-index:100;
+    backdrop-filter:blur(2px);
+    background:rgba(248,241,222,.92);
+    border-bottom: 1px solid rgba(201,151,46,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  }
+  .nav-wrap{
+    max-width:1140px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:30px 24px;
+    position: relative;
+  }
+  .brand{
+    font-size:24px; color:var(--green-dark); font-weight:700;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .star{
+    width:26px;
+    height:26px;
+    position:relative;
+    overflow:hidden;
+    display:inline-block;
+
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+
+    background:linear-gradient(
+        135deg,
+        #8C6515 0%,
+        #D4A017 25%,
+        #FFF4A8 50%,
+        #D4A017 75%,
+        #8C6515 100%
+    );
+
+    box-shadow:
+        0 0 8px rgba(212,160,23,.35);
+
+    animation:starGlow 3s infinite ease-in-out;
+  }
+  nav ul{display:flex; gap:32px;}
+nav a{
+    font-family:'Reem Kufi', sans-serif;
+    font-size:20px;
+    font-weight:800;
+    color:var(--green-dark);
+    position:relative;
+    padding:8px 0;
+    transition:all .35s ease;
+}
+
+nav a:hover{
+    color:var(--gold-dark);
+    transform:translateY(-3px);
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-6px;
+    transform:translateX(-50%);
+    width:0;
+    height:3px;
+    border-radius:5px;
+    background:linear-gradient(to right,var(--gold),#E9C46A,var(--gold));
+    transition:width .35s ease;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+  /* ===== Hero ===== */
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    padding:120px 24px 100px; /* مساحة أكبر وأكثر فخامة */
+    text-align:center;
+    color:var(--white);
+    overflow:hidden;
+  }
+  .hero-video{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    z-index:0;
+    opacity: 0; 
+    animation: fadeInVideo 1.5s ease-in forwards;
+  }
+  
+  @keyframes fadeInVideo {
+    to { opacity: 1; }
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    /* تخفيف التعتيم قليلاً ليظهر الفيديو بجمالية أكثر */
+    background:linear-gradient(180deg, rgba(18,62,52,0.4) 0%, rgba(18,62,52,0.7) 100%);
+    z-index:1;
+  }
+  .hero-content{position:relative; z-index:2; max-width:800px; margin:0 auto;}
+  
+  .eyebrow{
+    display:inline-block;
+    font-family:'Tajawal', sans-serif;
+    font-size:16px; font-weight:700; letter-spacing:0.5px;
+    color:var(--gold-dark);
+    border:1.5px solid var(--gold);
+    padding:10px 26px; border-radius:6px;
+    background:rgba(255,253,247,0.95);
+    margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:46px; line-height:1.4; margin-bottom:20px;
+    color:var(--white);
+    text-shadow:0 2px 10px rgba(0,0,0,0.3); /* ظل للنص ليكون مقروءاً */
+  }
+  .hero h1 span{color:var(--gold);}
+  .hero p{
+    font-size:18px; color:#F0E6C8; max-width:600px; margin:0 auto 35px;
+    line-height:1.8;
+    text-shadow:0 1px 5px rgba(0,0,0,0.3); /* ظل للنص */
+  }
+  .btn{
+    display:inline-block;
+    padding:14px 36px;
+    border-radius:8px;
+    font-weight:700;
+    font-size:15px;
+    transition:transform .25s, box-shadow .25s, background .25s;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--green-dark);
+  }
+  .btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 24px rgba(201,151,46,0.4);
+    background:#DBAB3E;
+  }
+
+  /* ===== Section shared ===== */
+  section{padding:80px 24px;}
+  .section-inner{max-width:1140px; margin:0 auto;}
+  .section-head{text-align:center; margin-bottom:56px;}
+ .section-head .eyebrow{
+    color:var(--terracotta-dark); border-color:var(--terracotta);
+    background:var(--white);
+  } 
+  .section-head h2{
+    font-size:34px; color:var(--green-dark); margin-top:14px;
+  }.section-head p{color:#4A3826; max-width:520px; margin:14px auto 0; font-size:17px; line-height:2; font-weight:500;}
+  
+
+  /* ===== Products grid ===== */
+  .products-grid{
+    display:grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap:14px;
+  }
+  .product-card.featured{ grid-row: span 2; grid-column: 1; }
+  .product-card.featured .product-body{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+  }
+  .product-card.featured .order-btn{
+    margin-top:auto;
+  }
+  @media (max-width:760px){
+    .products-grid{
+      grid-template-columns: 1fr;
+      grid-template-rows: none;
+    }
+    .product-card.featured{
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  }
+  .product-card{
+    background:var(--white);
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid rgba(46,32,19,0.08);
+    box-shadow:var(--shadow);
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .7s ease, transform .7s ease, box-shadow .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .product-card.in-view{
+    opacity:1;
+    transform:translateY(0);
+  }
+  .product-card.in-view:nth-child(2){transition-delay:.1s;}
+  .product-card.in-view:nth-child(3){transition-delay:.2s;}
+  .product-card.in-view:nth-child(4){transition-delay:.3s;}
+  .product-card.in-view:nth-child(5){transition-delay:.4s;}
+  .product-card:hover{
+    transform:translateY(-8px) !important;
+    box-shadow:0 20px 40px rgba(46,32,19,0.18);
+    transition-delay:0s;
+  }
+  .product-image{
+    height:180px;
+    flex-shrink:0;
+    background:
+      repeating-linear-gradient(45deg, #EFE6CC, #EFE6CC 12px, #E8DCB8 12px, #E8DCB8 24px);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    border-bottom:3px solid var(--gold);
+  }
+  .product-image span{
+    font-size:13px; color:var(--ink-soft);
+    background:rgba(255,253,247,0.85);
+    padding:6px 14px; border-radius:20px;
+  }
+  .product-body{
+    padding:10px 12px 12px;
+    text-align:center;
+    flex-shrink:0;
+  }
+  .product-body h3{
+    font-size:15px; color:var(--green-dark); margin-bottom:4px;
+  }
+  .product-body p.desc{
+    font-size:11.5px; color:var(--ink-soft); margin-bottom:8px; min-height:0;font-weight: 500;
+  }
+  .badge{
+    display:inline-block;
+    font-size:11px; font-weight:700;
+    padding:4px 12px; border-radius:20px;
+    margin-bottom:8px;
+  }
+  .badge.available{
+    background:rgba(31,92,78,0.12); color:var(--green-dark);
+  }
+  .badge.available::before{content:"● "; color:#3E8E77;}
+  .badge.unavailable{
+    background:rgba(181,80,47,0.1); color:var(--terracotta-dark);
+  }
+  .badge.unavailable::before{content:"● "; color:var(--terracotta);}
+
+  .order-btn{
+    display:block;
+    width:100%;
+    padding:8px;
+    border-radius:8px;
+    background:var(--green-dark);
+    color:var(--white);
+    font-weight:700;
+    font-size:12.5px;
+    border:none;
+    cursor:pointer;
+    transition:background .25s, transform .2s;
+  }
+  .order-btn:hover{background:var(--green); transform:translateY(-2px);}
+  .order-btn[disabled]{
+    background:#D8D0BC; color:#8A8270; cursor:not-allowed;
+  }
+  .order-btn[disabled]:hover{transform:none;
+  }
+    .order-btn.is-disabled{
+    background:#D8D0BC; color:#8A8270; cursor:not-allowed;
+    pointer-events:none;
+  }
+  .order-btn.is-disabled:hover{transform:none;
+  }
+  .origin-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid var(--gold);
+  color:var(--gold);
+  font-size:13px;
+  font-weight:700;
+  padding:8px 20px;
+  border-radius:30px;
+}
+.origin-badge i{ font-size:14px; }
+
+  /* ===== About (with background photo placeholder) ===== */
+  .about{
+    position:relative;
+    min-height:480px;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+  }
+  .about-photo{
+    position:absolute; inset:0;
+    background-image:url('na7la2.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+  }
+  .about::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(18,62,52,0.15) 0%, rgba(18,62,52,0.78) 55%, rgba(18,62,52,0.88) 100%);
+  }
+  .about-inner{
+    position:relative; z-index:2;
+    max-width:520px;
+    margin-inline-start:auto;
+    margin-inline-end:6%;
+    text-align:right;
+    background:rgba(15,40,34,0.38);
+    border:1px solid rgba(201,151,46,0.4);
+    border-radius:18px;
+    padding:34px 30px;
+    backdrop-filter:blur(2px);
+  }
+  .about-text h2{
+    font-size:38px; color:var(--gold);
+    margin-bottom:20px;
+    text-shadow:0 2px 10px rgba(0,0,0,0.35);
+  }
+  .about-text p{
+    color:var(--white);
+    margin-bottom:16px; font-size:16px;
+    text-shadow:0 1px 6px rgba(0,0,0,0.35);
+  }
+  .stats{display:flex; gap:30px; margin-top:26px; justify-content:flex-end; padding-top:18px; border-top:1px solid rgba(201,151,46,0.35);}
+  .stat b{display:block; font-size:30px; color:var(--gold); font-family:'Reem Kufi', sans-serif;}
+  .stat span{font-size:13px; color:var(--white);}
+
+  .menu-toggle{
+  display:none;
+  background:none;
+  border:none;
+  font-size:22px;
+  color:var(--green-dark);
+  cursor:pointer;
+  padding:6px;
+}
+
+@media (max-width:760px){
+  /* الهيدر */
+  .nav-wrap{ padding:12px 16px; }
+    .nav-logo{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    position:static !important;
+    top:auto !important;
+    left:auto !important;
+    transform:none !important;
+    margin:0 6px !important;
+    align-self:center !important;
+  }
+    .nav-wrap{
+    align-items:center !important;
+  }
+  .logo-circle{ width:100px !important; height:100px !important; }
+.logo-circle img{ width:100px !important; height:100px !important; }
+  .brand{ font-size:16px; gap:6px; }
+  .brand .star{ width:18px; height:18px; }
+  .menu-toggle{ display:block; }
+
+  nav ul{
+    display:none;
+    position:absolute;
+    top:100%; right:0; left:0;
+    background:var(--cream);
+    flex-direction:column;
+    gap:0;
+    border-top:1px solid var(--gold);
+    box-shadow:var(--shadow);
+    padding:6px 0;
+  }
+  nav ul.open{ display:flex; }
+  nav ul li{ opacity:1; animation:none; width:100%; }
+  nav ul li a{
+    display:block; width:100%;
+    padding:13px 20px; font-size:15px;
+    border-bottom:1px solid rgba(46,32,19,0.06);
+  }
+  nav ul li a::after{ display:none; }
+
+  /* الهيرو */
+  .hero{ padding:50px 16px 40px; }
+  .hero h1{ font-size:24px; line-height:1.5; }
+  .hero p{ font-size:13.5px; }
+  .eyebrow{ font-size:11px; padding:5px 12px; }
+  .btn{ padding:12px 26px; font-size:13.5px; }
+  .origin-badge{ font-size:11.5px; padding:6px 14px; }
+
+  /* الآية */
+  .ayah-frame{ padding:24px 16px; }
+  .ayah-text{ font-size:16px; line-height:1.9; }
+  .ayah-intro{ font-size:13.5px; }
+  .ayah-ref{ font-size:12px; }
+
+  /* المنتجات */
+  .section-head h2{ font-size:24px; }
+  .section-head p{ font-size:13px; }
+
+  /* من نحن */
+  .about{ min-height:auto; padding:50px 16px; }
+  .about-inner{
+    margin-inline-start:5%;
+    margin-inline-end:5%;
+    text-align:center;
+    padding:22px 18px;
+  }
+  .about-text h2{ font-size:26px; }
+  .about-text p{ font-size:13.5px; }
+  .stats{ justify-content:center; gap:20px; }
+  .stat b{ font-size:22px; }
+
+  /* التواصل */
+  .contact h2{ font-size:24px; }
+  .contact p{ font-size:13.5px; }
+  .contact-actions{ flex-wrap:wrap; gap:14px; }
+  .phone-card, .btn-light{ width:100%; max-width:280px; }
+
+  /* الفوتر */
+  footer{ padding:26px 16px 18px; font-size:12px; }
+}
+
+  
+  .trust-item{
+    display:flex; align-items:center; gap:14px;
+    text-align:right;
+    padding:0 34px;
+    position:relative;
+    transition:transform .25s;
+  }
+  .trust-item:hover{transform:translateY(-3px);}
+  .trust-item:not(:last-child)::after{
+    content:"";
+    position:absolute; left:0; top:50%; transform:translateY(-50%);
+    width:1px; height:40px;
+    background:rgba(46,32,19,0.15);
+  }
+  .trust-icon{
+    width:54px; height:54px; flex-shrink:0;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .25s;
+  }
+  .trust-item:hover .trust-icon{transform:scale(1.1);}
+  .trust-item:nth-child(1) .trust-icon{
+    background:rgba(31,92,78,0.12); border:1px solid var(--green); color:var(--green);
+  }
+  .trust-item:nth-child(2) .trust-icon{
+    background:rgba(181,80,47,0.1); border:1px solid var(--terracotta); color:var(--terracotta-dark);
+  }
+  .trust-item:nth-child(3) .trust-icon{
+    background:rgba(201,151,46,0.12); border:1px solid var(--gold); color:var(--gold-dark);
+  }
+  .trust-icon i{font-size:22px;}
+  .trust-item span{font-size:14px; font-weight:700; color:var(--ink-soft); max-width:150px;}
+  @media (max-width:600px){
+    .trust-bar-inner{gap:20px;}
+    .trust-item{width:100%; justify-content:center; text-align:center; padding:10px 0;}
+    .trust-item + .trust-item::before{display:none;}
+  }
+
+    /* ===== Ayah (Quran verse) section ===== */
+  .ayah-section{
+    background: var(--green-dark);
+    text-align:center;
+    padding:70px 24px;
+    position:relative;
+  }
+  .ayah-frame{
+    max-width:800px; margin:0 auto;
+    border:2px solid var(--gold);
+    border-radius:16px;
+    padding:50px 40px;
+    position:relative;
+    background:var(--white); /* إطار أبيض ناصع */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  }
+  .ayah-frame::before, .ayah-frame::after{
+    content:"❋";
+    color:var(--gold);
+    font-size:24px;
+    position:absolute;
+    top:-15px;
+    background: var(--green-dark);
+    padding:0 10px;
+  }
+  .ayah-frame::before{ right:30px; }
+  .ayah-frame::after{ left:30px; }
+  .ayah-text{
+    font-family:'Reem Kufi', sans-serif;
+    font-size:26px; /* خط أكبر وأوضح */
+    line-height:2.2;
+    color: #0A261F;
+    margin-bottom:20px;
+  }
+  .ayah-intro{
+    font-size:16px;
+    color:var(--terracotta-dark);
+    font-weight:700;
+    margin-bottom:15px;
+  }
+  .ayah-ref{
+    font-size:15px;
+    color:var(--terracotta-dark);
+    font-weight:700;
+  }
+   /* ===== Contact ===== */
+  .contact{
+    text-align:center;
+    color:var(--green-dark);
+    position:relative;
+    background:linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+    padding:80px 24px;
+    overflow:hidden;
+  }
+  /* إبقاء نقش الزليج لكن بشفافية خفيفة جداً ليعطي فخامة دون تشتيت */
+  .contact .zellige-bg{
+    position:absolute; inset:0; opacity:0.15; background-color:transparent; pointer-events:none;
+  }
+  .contact-inner{position:relative; z-index:2; max-width:600px; margin:0 auto;}
+  .contact h2{font-size:34px; margin-bottom:15px; color:var(--green-dark);}
+  .contact p{color:var(--green-dark); margin-bottom:35px; font-size:18px; line-height:1.8; font-weight:500;}
+  
+  .contact-actions{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  
+  .btn-light{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    width:260px;
+    height:60px;
+    background:var(--white);
+    color:var(--green-dark);
+    border-radius:12px;
+    font-size:14px;
+    font-weight:700;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    transition:transform .3s, box-shadow .3s;
+  }
+  .btn-light:hover{
+    transform:translateY(-4px); 
+    box-shadow:0 14px 28px rgba(0,0,0,0.2);
+    background:#FFFDF7;
+  }
+  .phone-icon{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #D9A92B; /* الدائرة الذهبية للهاتف */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    font-size: 18px;
+    flex-shrink: 0;
+    transition: transform .3s;
+  }
+  
+  .whatsapp-badge{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #25D366; /* الدائرة الخضراء للواتساب */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 20px;
+    flex-shrink: 0;
+    transition: transform .3s;
+  }
+  
+  /* تأثير دوران بسيط للأيقونات عند التمرير */
+  .btn-light:hover .phone-icon,
+  .btn-light:hover .whatsapp-badge {
+    transform:scale(1.15) rotate(-8deg);
+  }
+    /* ===== Footer ===== */
+  footer{
+    background:var(--green-dark);
+    color:#CBD9D4;
+    text-align:center;
+    padding:40px 24px;
+    font-size:14px;
+  }
+  footer .brand{
+    color:var(--gold); 
+    font-size:22px; 
+    margin-bottom:20px; 
+    justify-content:center;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .social-icons{
+    display:flex; justify-content:center; gap:15px;
+    margin-bottom:25px;
+  }
+  .social-icons a{
+    width:42px; height:42px;
+    border-radius:50%;
+    background:rgba(201,151,46,0.1);
+    border:1px solid rgba(201,151,46,0.4);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold);
+    transition:all .3s ease;
+  }
+  .social-icons a:hover{
+    background:var(--gold);
+    color:var(--green-dark);
+    transform:translateY(-4px);
+  }
+  .social-icons i{ font-size:18px; }
+  .footer-right p { margin-bottom: 8px; font-weight: 500; }
+  .footer-right span { font-size: 12px; color: #9CA8A3; }
+
+
+  
+.nav-logo{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo-circle{
+    width: 100px;
+    height: 100px;
+}
+
+.logo-circle img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    transition:.4s;
+}
+
+.nav-logo:hover img{
+    transform:scale(1.08);
+}
+
+@keyframes menuAnimation{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+nav li{
+    opacity:0;
+    animation:menuAnimation .8s forwards;
+}
+
+nav li:nth-child(1){animation-delay:.1s;}
+nav li:nth-child(2){animation-delay:.2s;}
+nav li:nth-child(3){animation-delay:.3s;}
+nav li:nth-child(4){animation-delay:.4s;}
+
+
+
+.brand .star::before{
+    content:"";
+    position:absolute;
+
+    top:-50%;
+    left:-120%;
+
+    width:40%;
+    height:200%;
+
+    background:rgba(255,255,255,.95);
+
+    transform:rotate(25deg);
+
+    filter:blur(2px);
+
+    animation:starShine 3s infinite;
+}
+
+@keyframes starShine{
+
+    0%{
+        left:-120%;
+    }
+
+    35%{
+        left:140%;
+    }
+
+    100%{
+        left:140%;
+    }
+
+}
+
+@keyframes starGlow{
+
+    0%,100%{
+        box-shadow:
+            0 0 8px rgba(212,160,23,.35);
+    }
+
+    50%{
+        box-shadow:
+            0 0 18px rgba(255,215,0,.8),
+            0 0 35px rgba(255,215,0,.35);
+    }
+
+}
+
+
+/* ===== إصلاحات الهاتف ===== */
+@media (max-width:760px){
+   .hero-video{ display:block; } 
+  .hero{
+    background:var(--green-dark);
+}
+.hero::before{
+  background:linear-gradient(180deg, rgba(18,62,52,0.65) 0%, rgba(18,62,52,0.85) 100%);
+}
+
+  /* --- الهيدر --- */
+  .nav-wrap{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+  }
+  .brand{
+    font-size:15px;
+    gap:6px;
+    justify-self:start;
+    white-space:nowrap;
+  }
+  .brand .star{ width:18px; height:18px; }
+
+  .nav-logo{
+    position:static;
+    top:auto;
+    left:auto;
+    transform:none;
+    margin:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    justify-self:center;
+  }
+  .logo-circle,
+  .logo-circle img{
+    width:56px;
+    height:56px;
+  }
+
+  nav{ justify-self:end; }
+  .menu-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    padding:0;
+    font-size:20px;
+  }
+
+  nav ul{
+    display:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    left:0;
+    background:var(--cream);
+    flex-direction:column;
+    gap:0;
+    border-top:1px solid var(--gold);
+    box-shadow:var(--shadow);
+    padding:6px 0;
+    max-height:calc(100vh - 72px);
+    overflow-y:auto;
+    z-index:101;
+  }
+  nav ul.open{ display:flex; }
+  nav ul li{ width:100%; opacity:1; animation:none; }
+  nav ul li a{
+    display:block;
+    width:100%;
+    padding:14px 20px;
+    font-size:15px;
+    border-bottom:1px solid rgba(46,32,19,0.06);
+  }
+  nav ul li a::after{ display:none; }
+
+  /* --- التمرير مع الهيدر الثابت --- */
+  #home, #products, #about, #contact{ scroll-margin-top:80px; }
+
+  /* --- الهيرو --- */
+  .hero{ padding:50px 16px 40px; }
+  .hero h1{ font-size:24px; line-height:1.5; }
+  .hero p{ font-size:13.5px; }
+  .eyebrow{ font-size:11px; padding:5px 12px; }
+  .btn{ padding:12px 26px; font-size:13.5px; }
+  .origin-badge{ font-size:11.5px; padding:6px 14px; }
+
+  /* --- الآية --- */
+  .ayah-section{ padding:44px 16px; }
+  .ayah-frame{ padding:24px 16px; }
+  .ayah-text{ font-size:16px; line-height:1.9; }
+  .ayah-intro{ font-size:13.5px; }
+  .ayah-ref{ font-size:12px; }
+
+  /* --- الأقسام --- */
+  section{ padding:48px 16px; }
+  .section-head{ margin-bottom:32px; }
+  .section-head h2{ font-size:24px; }
+  .section-head p{ font-size:13px; }
+
+  /* --- المنتجات --- */
+  .products-grid{
+    grid-template-columns:1fr;
+    grid-template-rows:none;
+  }
+  .product-card.featured{
+    grid-column:span 1;
+    grid-row:span 1;
+  }
+
+  /* --- من نحن --- */
+  .about{ min-height:auto; padding:50px 16px; }
+  .about::after{
+    background:linear-gradient(180deg, rgba(18,62,52,0.72) 0%, rgba(18,62,52,0.9) 100%);
+  }
+  .about-inner{
+    margin-inline-start:5%;
+    margin-inline-end:5%;
+    text-align:center;
+    padding:22px 18px;
+    background:rgba(15,40,34,0.55);
+  }
+  .about-text h2{ font-size:26px; }
+  .about-text p{ font-size:13.5px; }
+  .stats{ justify-content:center; gap:20px; }
+  .stat b{ font-size:22px; }
+
+  /* --- التواصل --- */
+  .contact h2{ font-size:24px; }
+  .contact p{ font-size:13.5px; }
+  .contact-actions{ flex-wrap:wrap; gap:14px; }
+  .phone-card,
+  .btn-light{
+    width:100%;
+    max-width:280px;
+    height:64px;
+  }
+
+  /* --- الفوتر --- */
+  footer{ padding:26px 16px 18px; font-size:12px; }
+}
+
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+
+
+</style>
+
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="brand"><span class="star"></span> خلية الأطلس HI</div>
+<a href="#" class="nav-logo">
+    <div class="logo-circle">
+        <img src="logo1.png" alt="HI">
+    </div>
+</a>
+    <nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <ul id="navList">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#products">منتجاتنا</a></li>
+        <li><a href="#about">من نحن</a></li>
+        <li><a href="#services">مستلزمات النحالة</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="ayah-section">
+  <div class="ayah-frame">
+    <p class="ayah-intro">قال تعالى:</p>
+<p class="ayah-text">
+  «ثُمَّ كُلِي مِن كُلِّ الثَّمَرَاتِ فَاسْلُكِي سُبُلَ رَبِّكِ ذُلُلًا ۚ يَخْرُجُ مِن بُطُونِهَا شَرَابٌ مُّخْتَلِفٌ أَلْوَانُهُ فِيهِ شِفَاءٌ لِّلنَّاسِ ۗ إِنَّ فِي ذَٰلِكَ لَآيَةً لِّقَوْمٍ يَتَفَكَّرُونَ»
+</p>
+<p class="ayah-ref">سورة النحل — الآية 69</p>
+  </div>
+</section>
+<div class="zellige-divider"></div>
+
+
+
+<section class="hero" id="home">
+  <video class="hero-video" autoplay muted loop playsinline poster="socor.jpg">
+  <source src="video.mp4" type="video/mp4">
+</video>
+  <div class="hero-content">
+    <span class="eyebrow">100% طبيعي · من قلب الأطلس</span>
+    <h1>عسل طبيعي أصيل، <span>مباشرة من الخلية إلى مائدتك</span></h1>
+    <p>نقدم لكم أجود أنواع العسل الطبيعي المغربي، مستخرج بطرق تقليدية وبدون أي إضافات، للحفاظ على نقاء وفوائد كل قطرة.</p>
+    <a href="#products" class="btn btn-primary">اكتشف منتجاتنا</a>
+  <div style="margin-top:20px;">
+    <span class="origin-badge"><i class="fa-solid fa-certificate"></i> منتج مغربي أصيل 100%</span>
+  </div>
+</section>
+
+
+
+<div class="zellige-divider"></div>
+
+<section id="products">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">منتجاتنا</span>
+      <h2>أنواع العسل المتوفرة</h2>
+      <p>كل نوع من عسلنا له نكهة وفوائد خاصة، مستخرج من مناطق مختارة بعناية.</p>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card featured" data-product="aachab">
+        <div class="product-image">
+  <img src="a3xab.png" alt="عسل الأعشاب" style="width:100%; height:100%; object-fit:cover;">
+</div>
+        <div class="product-body">
+          <h3>عسل الأعشاب</h3>
+          <p class="desc">خليط طبيعي من رحيق أعشاب متنوعة، غني بالفوائد.</p>
+          <span class="badge unavailable">غير متوفر حاليا</span>
+          <a href="https://wa.me/212767648943?text=السلام عليكم ورحمة الله وبركاته،%0Aأرغب في طلب عسل الأعشاب، وأود معرفة السعر، والوزن المتوفر، وطريقة التوصيل.%0Aوشكرًا لكم." class="order-btn is-disabled" target="_blank">غير متوفر</a>
+        </div>
+      </div>
+
+         <div class="product-card" data-product="sidr">
+        <div class="product-image">
+  <img src="sidr.png" alt="عسل السدر" style="width:100%; height:100%; object-fit:cover;">
+</div>
+        <div class="product-body">
+          <h3>عسل السدر</h3>
+          <p class="desc">من أجود وأغلى أنواع العسل، معروف بفوائده الصحية العديدة.</p>
+          <span class="badge available">متوفر</span>
+          <a href="https://wa.me/212767648943?text=السلام عليكم ورحمة الله وبركاته،%0Aأرغب في طلب عسل السدر، وأود معرفة السعر، والوزن المتوفر، وطريقة التوصيل.%0Aوشكرًا لكم."
+          class="order-btn"
+          target="_blank">
+اطلب الآن
+</a>
+        </div>
+      </div>
+
+         <div class="product-card" data-product="zaatar">
+       <div class="product-image">
+  <img src="za3tar.png" alt="عسل الزعتر" style="width:100%; height:100%; object-fit:cover;">
+</div>
+        <div class="product-body">
+          <h3>عسل الزعتر</h3>
+          <p class="desc">نكهة قوية ومميزة، مستخرج من أزهار الزعتر البري.</p>
+          <span class="badge available">متوفر</span>
+          <a href="https://wa.me/212767648943?text=السلام عليكم ورحمة الله وبركاته،%0Aأرغب في طلب عسل الزعتر، وأود معرفة السعر، والوزن المتوفر، وطريقة التوصيل.%0Aوشكرًا لكم."
+          class="order-btn"
+          target="_blank">
+اطلب الآن
+</a>
+        </div>
+      </div>
+
+      <div class="product-card row2-ref" data-product="khroub">
+        <div class="product-image">
+  <img src="5arob.png" alt="عسل الخروب" style="width:100%; height:100%; object-fit:cover;">
+</div>
+        <div class="product-body">
+          <h3>عسل الخروب</h3>
+          <p class="desc">طعم غني وقوام كثيف، غني بالعناصر المغذية.</p>
+          <span class="badge unavailable">غير متوفر حاليا</span>
+         <a href="https://wa.me/212767648943?text=السلام عليكم ورحمة الله وبركاته،%0Aأرغب في طلب عسل الخروب، وأود معرفة السعر، والوزن المتوفر، وطريقة التوصيل.%0Aوشكرًا لكم." class="order-btn is-disabled" target="_blank">غير متوفر</a>
+        </div>
+      </div>
+
+         <div class="product-card" data-product="laymoun">
+        <div class="product-image">
+  <img src="laymon 3asal.jpg" alt="عسل الليمون" style="width:100%; height:100%; object-fit:cover;">
+</div>
+        <div class="product-body">
+          <h3>عسل الليمون</h3>
+          <p class="desc">مزيج منعش بين حلاوة العسل ونكهة الحمضيات.</p>
+          <span class="badge available">متوفر</span>
+          <a href="https://wa.me/212767648943?text=السلام عليكم ورحمة الله وبركاته،%0Aأرغب في طلب عسل الليمون، وأود معرفة السعر، والوزن المتوفر، وطريقة التوصيل.%0Aوشكرًا لكم."
+          class="order-btn"
+          target="_blank">
+اطلب الآن
+</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- قسم الخدمات ومستلزمات النحالة -->
+<section id="services" style="background: var(--cream-dark);">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">كل ما يحتاجه النحال</span>
+      <h2>مستلزمات ومعدات النحالة</h2>
+      <p>نوفر لكم تجهيزات احترافية وعالية الجودة لتربية النحل، من الصناديق والإطارات إلى أدوات الحماية واستخراج العسل.</p>
+    </div>
+    <div class="services-grid">
+      <!-- 1. صندوق نحل -->
+      <div class="product-card" data-product="box">
+        <div class="product-image">
+          <img src="snad9.jpg" alt="صندوق نحل خشبي" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <h3>صندوق نحل خشبي</h3>
+          <p class="desc">خشب ممتاز مقاوم للظروف الجوية، تصميم يضمن تهوية مثالية وتنظيمًا سهلًا للخلايا.</p>
+          <span class="badge available">متوفر</span>
+          <a href="https://wa.me/212767648943?text=السلام عليكم، أرغب في الاستفسار عن صناديق النحل" class="order-btn" target="_blank">اطلب الآن</a>
+        </div>
+      </div>
+
+      <!-- 2. إطارات خشبية -->
+      <div class="product-card" data-product="frames">
+        <div class="product-image">
+          <img src="lkwatr.png" alt="إطارات خشبية" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <h3>إطارات خشبية</h3>
+          <p class="desc">مصنوعة بدقة لضمان ثبات الشمع وتسهيل حركة النحل، متينة وتدوم طويلاً.</p>
+          <span class="badge available">متوفر</span>
+          <a href="https://wa.me/212767648943?text=السلام عليكم، أرغب في الاستفسار عن الإطارات الخشبية" class="order-btn" target="_blank">اطلب الآن</a>
+        </div>
+      </div>
+
+      <!-- 3. شمع أساس -->
+      <div class="product-card" data-product="wax">
+        <div class="product-image">
+          <img src="chm3.png" alt="شمع أساس طبيعي" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <h3>شمع أساس طبيعي 100%</h3>
+          <p class="desc">شمع نقي خالي من الشوائب، يشجع النحل على بناء الخلية بسرعة وإنتاج عسل بجودة أعلى.</p>
+          <span class="badge available">متوفر</span>
+          <a href="https://wa.me/212767648943?text=السلام عليكم، أرغب في الاستفسار عن شمع الأساس" class="order-btn" target="_blank">اطلب الآن</a>
+        </div>
+      </div>
+
+      <!-- 4. بدلة واقية -->
+      <div class="product-card" data-product="suit">
+        <div class="product-image">
+          <img src="lbsa.jpg" alt="بدلة نحال" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <h3>بدلة نحال واقية</h3>
+          <p class="desc">حماية كاملة لك أثناء العمل. قماش سميك يمنع لسعات النحل مع قبعة شبكية مريحة.</p>
+          <span class="badge available">متوفر</span>
+          <a href="https://wa.me/212767648943?text=السلام عليكم، أرغب في الاستفسار عن بدلة النحال" class="order-btn" target="_blank">اطلب الآن</a>
+        </div>
+      </div>
+
+      <!-- 5. مدخن النحل -->
+      <div class="product-card" data-product="smoker">
+        <div class="product-image">
+          <img src="rabos.jpeg" alt="مدخن نحل" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <h3>مدخن نحل استانلس ستيل</h3>
+          <p class="desc">أداة لا غنى عنها لتهدئة النحل أثناء الفحص. مصنوع من الستانلس ستيل المقاوم للحرارة.</p>
+          <span class="badge available">متوفر</span>
+          <a href="https://wa.me/212767648943?text=السلام عليكم، أرغب في الاستفسار عن المدخن" class="order-btn" target="_blank">اطلب الآن</a>
+        </div>
+      </div>
+
+      <!-- 6. فرازة عسل -->
+      <div class="product-card" data-product="extractor">
+        <div class="product-image">
+          <img src="lmakina.jpg" alt="فرازة عسل" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="product-body">
+          <h3>فرازة عسل (يدوية/كهربائية)</h3>
+          <p class="desc">استخرج عسلك بسرعة وكفاءة دون إتلاف الشمع. متوفرة بسعات مختلفة حسب احتياجك.</p>
+          <span class="badge available">متوفر</span>
+          <a href="https://wa.me/212767648943?text=السلام عليكم، أرغب في الاستفسار عن فرازة العسل" class="order-btn" target="_blank">اطلب الآن</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="about" id="about">
+  <div class="about-photo"></div>
+  <div class="about-inner">
+    <div class="about-text">
+      <h2>من نحن</h2>
+      <p>نقدم عسلا طبيعيا 100% مصدره مباشر من مربي النحل في مناطق الأطلس.</p>
+      <p>كل عبوة مراقبة بعناية لضمان جودتها ونقائها، بلا أي إضافات أو سكر.</p>
+      <div class="stats">
+        <div class="stat"><b>100%</b><span>طبيعي</span></div>
+        <div class="stat"><b>5+</b><span>أنواع عسل</span></div>
+        <div class="stat"><b>0%</b><span>إضافات</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="zellige-bg"></div>
+  <div class="contact-inner">
+    <h2>هل تريد الطلب؟</h2>
+    <p>تواصل معنا مباشرة عبر واتساب أو الهاتف وسنوافيك بكل التفاصيل.</p>
+    <div class="contact-actions">
+    <a href="https://wa.me/212767648943?text=السلام عليكم ورحمة الله وبركاته،اطلعت على موقعكم و ارغب في معرفة المزيد عن منتجكم، وشكرًا لكم."
+   class="btn btn-light phone-card"
+   target="_blank">
+    <span class="phone-number" style="direction:rtl;">تواصل عبر واتساب</span>
+    <span class="phone-icon whatsapp-badge">
+        <i class="fa-brands fa-whatsapp"></i>
+    </span>
+</a>
+<a href="tel:+212767648943" class="btn btn-light phone-card">
+    <span class="phone-number" dir="ltr">
+        +212 767-648943
+    </span>
+    <span class="phone-icon">
+        <i class="fa-solid fa-phone"></i>
+    </span>
+</a>
+</div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand" style="justify-content:center; display:flex;"><span class="star" style="background:var(--gold);"></span> خلية الأطلس HI</div>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/abde.lwarit.ait.youssef" aria-label="Facebook" target="_blank">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    <a href="https://www.instagram.com/abdelwaritaityoussef?igsh=MXFxdXNkdGFrYjU3eA==" aria-label="Instagram" target="_blank">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </div>
+  <div class="footer-right">
+    <p>عسل طبيعي 100% — جميع الحقوق محفوظة © 2026</p>
+    <span>Conçu par HAKKI Hamza — Solutions Digitales Santé</span>
+  </div>
+</footer>
+
+<script>
+  function alignFeaturedDivider(){
+    if(window.innerWidth <= 760){
+      var mobileImg = document.querySelector('.product-card.featured .product-image');
+      if(mobileImg) mobileImg.style.height = '';
+      return;
+    }
+    var featured = document.querySelector('.product-card.featured');
+    var refCard = document.querySelector('.product-card.row2-ref');
+    if(!featured || !refCard) return;
+    var featuredImg = featured.querySelector('.product-image');
+    var refImg = refCard.querySelector('.product-image');
+    var featuredTop = featured.getBoundingClientRect().top;
+    var lineY = refImg.getBoundingClientRect().bottom;
+    var newHeight = lineY - featuredTop;
+    if(newHeight > 60){
+      featuredImg.style.height = newHeight + 'px';
+    }
+  }
+  window.addEventListener('load', alignFeaturedDivider);
+  window.addEventListener('resize', alignFeaturedDivider);
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(alignFeaturedDivider);
+  }
+
+  // Scroll reveal for product cards
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.product-card').forEach(function(card){
+    revealObserver.observe(card);
+  });
+var GOOGLE_SHEET_CSV_URL ="https://docs.google.com/spreadsheets/d/e/2PACX-1vTqNqhsKMo71jL9YaxS80DrG2bJ_4f2hani6poW9rF2kqIl7ZcBoLOCj5fbsMBJXdDs1_JcDRfe0d6b/pub?output=csv";
+
+fetch(GOOGLE_SHEET_CSV_URL)
+  .then(function(response) { return response.text(); })
+  .then(function(data) {
+    var lines = data.trim().split(/\r?\n/);
+    for (var i = 1; i < lines.length; i++) {
+      var parts = lines[i].split(',');
+      if (parts.length >= 2) {
+        var id = parts[0].trim().toLowerCase();
+        var isAvailable = parts[1].trim().toLowerCase();
+        
+        var card = document.querySelector('.product-card[data-product="' + id + '"]');
+        if (card) {
+          var badge = card.querySelector('.badge');
+          var btn = card.querySelector('.order-btn');
+          
+          if (isAvailable === 'true' || isAvailable === '1' || isAvailable === 'yes') {
+            badge.textContent = 'متوفر';
+            badge.className = 'badge available';
+            btn.textContent = 'اطلب الآن';
+            btn.classList.remove('is-disabled');
+          } else {
+            badge.textContent = 'غير متوفر حاليا';
+            badge.className = 'badge unavailable';
+            btn.textContent = 'غير متوفر';
+            btn.classList.add('is-disabled');
+          }
+        }
+      }
+    }
+  })
+  .catch(function(error) {
+    console.log('خطأ:', error);
+  });
+
+var menuToggle = document.getElementById('menuToggle');
+var navList = document.getElementById('navList');
+if(menuToggle && navList){
+  menuToggle.addEventListener('click', function(){
+    navList.classList.toggle('open');
+  });
+  navList.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      navList.classList.remove('open');
+    });
+  });
+}
+</script>
+
+</body>
+</html>
